@@ -1,0 +1,5 @@
+<% Dir["./public/combination_pics/#{@weibo.id}/*.jpg"].each do |pic| %>
+  <img src="/combination_pics/<%= @weibo.id %>/<%= File.basename(pic) %>">
+  <br>
+<% end %>
+<a href="<%= request.referer %>">返回</a>

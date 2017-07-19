@@ -1,0 +1,36 @@
+<h1>微博<%= @bar %></h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>内容</th>
+            <th>配图</th>
+            <th>组图</th>
+            <th>发布时间</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @weibos.each do |weibo| %>
+        <tr>
+            <td class="col-md-9"><span><%= weibo.content %></span></td>
+
+            <td class="col-md-1">
+                <% if weibo.pic_url.present? %>
+                    <img src=<%= weibo.pic_url %> width="50" height="50" ><a href="/<%= weibo.id %>/large_pic">原图</a>
+                <% end %>
+            </td>
+
+            <td class="col-md-1">
+                <% if weibo.pics_downloaded? %>
+                  <a href="/<%= weibo.id %>/all_pics">组图</a>
+                <% end %>
+            </td>
+
+            <td class="col-md-1">
+                <span><%= weibo.released_at.strftime('%Y-%m-%d %H:%M:%S') %></span>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+<%= will_paginate @weibos %>

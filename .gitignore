@@ -1,0 +1,6 @@
+db/schema.rb
+db/*.sqlite
+config/config.yml
+public/pictures
+public/combination_pics
+new_crawler.rb
